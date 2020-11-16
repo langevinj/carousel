@@ -17,3 +17,14 @@ it("works when you click on the right arrow", function() {
   expect(queryByAltText("Photo by Richard Pasquarella on Unsplash")).not.toBeInTheDocument();
   expect(queryByAltText("Photo by Pratik Patel on Unsplash")).toBeInTheDocument();
 });
+
+//smoke test
+it("renders without crashing", function() {
+  render(<Carousel />);
+});
+
+//snapshot test 
+it("matches snapshot", function() {
+  const {asFragment} = render(<Carousel />);
+  expect(asFragment()).toMatchSnapshot();
+});
